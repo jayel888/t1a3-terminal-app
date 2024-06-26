@@ -1,6 +1,6 @@
 [
     {
-        "Restaurant Name": "NOMAD",
+        "Restaurant": "NOMAD",
         "Cuisine": "Fusion",
         "Address": "187 Flinders Ln",
         "Postcode": "3000",
@@ -11,7 +11,7 @@
         "Rating": 9.0,
     },
     {
-        "Restaurant Name": "Minamishima",
+        "Restaurant": "Minamishima",
         "Cuisine": "Japanese",
         "Address": "4 Lord St",
         "Postcode": "3121",
@@ -22,7 +22,7 @@
         "Rating": 9.5,
     },
     {
-        "Restaurant Name": "Subway - Reservoir",
+        "Restaurant": "Subway - Reservoir",
         "Cuisine": "Fast Food",
         "Address": "931 High St",
         "Postcode": "3073",
@@ -33,7 +33,7 @@
         "Rating": 6.8,
     },
     {
-        "Restaurant Name": "McDonalds - Preston",
+        "Restaurant": "McDonalds - Preston",
         "Cuisine": "Fast Food",
         "Address": "411 423, St Georges Rd",
         "Postcode": "3072",
@@ -44,7 +44,7 @@
         "Rating": 10.0,
     },
     {
-        "Restaurant Name": "Tipo 00",
+        "Restaurant": "Tipo 00",
         "Cuisine": "Italian",
         "Address": "361 Little Bourke St",
         "Postcode": "3000",
@@ -55,7 +55,7 @@
         "Rating": 8.4,
     },
     {
-        "Restaurant Name": "Dexter",
+        "Restaurant": "Dexter",
         "Cuisine": "American",
         "Address": "456 High St",
         "Postcode": "3072",
@@ -66,7 +66,7 @@
         "Rating": 8.1,
     },
     {
-        "Restaurant Name": "PHO Hung Preston",
+        "Restaurant": "PHO Hung Preston",
         "Cuisine": "Vietnamese",
         "Address": "447 High St",
         "Postcode": "3072",
