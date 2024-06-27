@@ -25,3 +25,12 @@ def add_restaurant(restaurants):
         print("Error: Invalid input. Price and Rating must be an integer.")
     except Exception as e:
         print(f"An unexpected error occured: {e}")
+
+def rating_restaurants(restaurants):
+    filter = int(input("select rating: "))
+    try:
+        return [restaurant for restaurant in restaurants if restaurant['Rating'] >= filter]
+    except Exception as e:
+        print(f"An unexpected error occured: {e}")
+        return []
+                
