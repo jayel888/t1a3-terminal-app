@@ -5,10 +5,9 @@
         "Address": "187 Flinders Ln",
         "Postcode": "3000",
         "State": "VIC",
-        "Phone": "(02) 9280 3395",
-        "Website": "nomad.melbourne",
-        "Avg Price per head": 100,
-        "Rating": 9.0,
+        "Phone": "9280 3395",
+        "Est Price PP": 100,
+        "Rating": 9
     },
     {
         "Restaurant": "Minamishima",
@@ -16,10 +15,9 @@
         "Address": "4 Lord St",
         "Postcode": "3121",
         "State": "VIC",
-        "Phone": "(03) 9429 5180",
-        "Website": "minamishima.com.au",
-        "Avg Price per head": 295,
-        "Rating": 9.5,
+        "Phone": "9429 5180",
+        "Est Price PP": 295,
+        "Rating": 9
     },
     {
         "Restaurant": "Subway - Reservoir",
@@ -27,10 +25,9 @@
         "Address": "931 High St",
         "Postcode": "3073",
         "State": "VIC",
-        "Phone": "(03) 9460 4555",
-        "Website": "subway.com",
-        "Avg Price per head": 13,
-        "Rating": 6.8,
+        "Phone": "9460 4555",
+        "Est Price PP": 13,
+        "Rating": 6
     },
     {
         "Restaurant": "McDonalds - Preston",
@@ -38,10 +35,9 @@
         "Address": "411 423, St Georges Rd",
         "Postcode": "3072",
         "State": "VIC",
-        "Phone": "(03) 9480 0135",
-        "Website": "mcdonalds.com.au",
-        "Avg Price per head": 12,
-        "Rating": 10.0,
+        "Phone": "9480 0135",
+        "Est Price PP": 12,
+        "Rating": 10
     },
     {
         "Restaurant": "Tipo 00",
@@ -49,10 +45,9 @@
         "Address": "361 Little Bourke St",
         "Postcode": "3000",
         "State": "VIC",
-        "Phone": "(03) 9942 3946",
-        "Website": "tipo00.com.au",
-        "Avg Price per head": 60,
-        "Rating": 8.4,
+        "Phone": "9942 3946",
+        "Est Price PP": 60,
+        "Rating": 8
     },
     {
         "Restaurant": "Dexter",
@@ -61,9 +56,8 @@
         "Postcode": "3072",
         "State": "VIC",
         "Phone": "(03) 9973 3577",
-        "Website": "dexter.melbourne",
-        "Avg Price per head": 50,
-        "Rating": 8.1,
+        "Est Price PP": 50,
+        "Rating": 8
     },
     {
         "Restaurant": "PHO Hung Preston",
@@ -72,8 +66,7 @@
         "Postcode": "3072",
         "State": "VIC",
         "Phone": "(03) 9470 1588",
-        "Website": "None",
-        "Avg Price per head": 30,
-        "Rating": 7.3,
-    },
+        "Est Price PP": 30,
+        "Rating": 7
+    }
 ]
