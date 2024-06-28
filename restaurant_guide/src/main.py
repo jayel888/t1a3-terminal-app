@@ -6,9 +6,30 @@ FILE_PATH = '../data/restaurant_list.json'
 def main():
     restaurants = import_restaurants_list(FILE_PATH)
 
-    # add_restaurant(restaurants)
-    # display_restaurants(restaurants)
-    rating_restaurants(restaurants)
+    if not restaurants:
+        print("No data loaded or an error occured. Exiting.")
+        return
+    while True:
+        print("\nWelcome to your Restaurant Tracker!\n")
+        print("1: Display all restaurants")
+        print("2: Add a new restaurant")
+        print("3: Filter restaurants through rating")
+        print("4: Save updates and Exit")
 
-main ()
+        choice = input("\nSelect from the above: ")
+
+        if choice == '1':
+            display_restaurants(restaurants)
+        elif choice == '2':
+            add_restaurant(restaurants)
+        elif choice == '3':
+            rating_restaurants(restaurants)
+        elif choice == '4':
+            break
+        
+        else:
+            print("Invalid Choice. Please select a number between 1-5")
+    
+if __name__ == "__main__":
+    main ()
 

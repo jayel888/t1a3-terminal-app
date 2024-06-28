@@ -11,7 +11,7 @@ def add_restaurant(restaurants):
     try:
         name = input("What is the name of the restaurant? ")
         cuisine = input("What type of cuisine? ")
-        address = input("What is the address? ")
+        address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street) ? ")
         postcode = input("What is the postcode? ")
         state = input("What state is it located in? ")
         phone = input("What is their phone number? ")
@@ -29,8 +29,10 @@ def add_restaurant(restaurants):
 def rating_restaurants(restaurants):
     filter = int(input("select rating: "))
     try:
-        return [restaurant for restaurant in restaurants if restaurant['Rating'] >= filter]
+        return [restaurant for restaurant in restaurants if restaurant['Rating'] > filter]
     except Exception as e:
         print(f"An unexpected error occured: {e}")
         return []
                 
+# def give_random(restaurants):
+#     try:
