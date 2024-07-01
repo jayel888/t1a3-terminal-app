@@ -1,5 +1,5 @@
 from file_operations import import_restaurants_list, save_restaurants_list
-from app_operations import display_restaurants, add_restaurant, rating_restaurants
+from app_operations import display_restaurants, add_restaurant, filter_restaurants, random_restaurant
 
 FILE_PATH = '../data/restaurant_list.json'
 
@@ -24,8 +24,10 @@ def main():
         elif choice == '2':
             add_restaurant(restaurants)
         elif choice == '3':
-            rating_restaurants(restaurants)
+            filter_restaurants(restaurants)
         elif choice == '4':
+            random_restaurant(restaurants)
+        elif choice == '5':
             break
         
         else:

@@ -44,7 +44,7 @@ def add_restaurant(restaurants):
         while True:
             try:
                 price = int(input("What is the price per head? "))
-                if price != int:
+                if price >= 0:
                     break
             except ValueError:
                 pass
@@ -52,12 +52,14 @@ def add_restaurant(restaurants):
             
         while True:
             try:
-                rating = int(input("What do you rate it (out of 10)?: "))
+                rating = int(input("Enter rating between 0 - 10: "))
                 if rating in range(0,11): 
                     break
             except ValueError:
-                pass
-            print("Invalid number. Please enter a number between 0 - 10") 
+                print("Invalid number. Please enter a number between 0 - 10") 
+            except Exception as e:
+                print(f"An unexpected error occured: {e}")
+            
 
         restaurant = {"Restaurant":name, "Cuisine":cuisine, "Address":address, "Postcode":postcode, "State":state, "Phone":phone, "Est Price PP": price, "Rating":rating }
         restaurants.append(restaurant)
@@ -67,7 +69,7 @@ def add_restaurant(restaurants):
     except Exception as e:
         print(f"An unexpected error occured: {e}")
 
-def rating_restaurants(restaurants):
+def filter_restaurants(restaurants):
     filter = int(input("select rating: "))
     try:
         return [restaurant for restaurant in restaurants if restaurant['Rating'] > filter]
@@ -75,5 +77,8 @@ def rating_restaurants(restaurants):
         print(f"An unexpected error occured: {e}")
         return []
                 
-# def give_random(restaurants):
-#     try:
+
+def random_restaurant(restaurants):
+    rand_rest = random.choice(restaurants)
+    print(rand_rest)
+
