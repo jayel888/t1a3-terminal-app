@@ -1,3 +1,5 @@
+import random
+
 def  display_restaurants(restaurants):
     try:
         for restaurant in restaurants:
@@ -12,9 +14,14 @@ def add_restaurant(restaurants):
         name = input("What is the name of the restaurant? ")
         cuisine = input("What type of cuisine? ")
         address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street) ? ")
-        postcode = input("What is the postcode? ")
+        
+        while True:
+            postcode = (input("What is the postcode? "))
+            if postcode.isnumeric() and len(postcode) == 4:
+                break
+            print("Invalid postcode. Please enter 4 numbers.")
+            
         state = ""
-
         if postcode[0] == '3':
             state = 'VIC'
         elif postcode[0] == '2':
@@ -39,19 +46,18 @@ def add_restaurant(restaurants):
                 price = int(input("What is the price per head? "))
                 if price != int:
                     break
-            except ValueError: pass
+            except ValueError:
+                pass
             print("Invalid input. Please enter a number.") 
-        
-    
+            
         while True:
             try:
                 rating = int(input("What do you rate it (out of 10)?: "))
                 if rating in range(0,11): 
                     break
-            except ValueError: pass
+            except ValueError:
+                pass
             print("Invalid number. Please enter a number between 0 - 10") 
-            
-
 
         restaurant = {"Restaurant":name, "Cuisine":cuisine, "Address":address, "Postcode":postcode, "State":state, "Phone":phone, "Est Price PP": price, "Rating":rating }
         restaurants.append(restaurant)

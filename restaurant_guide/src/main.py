@@ -13,8 +13,9 @@ def main():
         print("\nWelcome to your Restaurant Tracker!\n")
         print("1: Display all restaurants")
         print("2: Add a new restaurant")
-        print("3: Filter restaurants through rating")
-        print("4: Save updates and Exit")
+        print("3: Filter restaurants by Rating or Price.")
+        print("4: Generate a random restaurant. (Perfect for when you can't decide what to eat)")
+        print("5: Save updates and Exit")
 
         choice = input("\nSelect from the above: ")
 
