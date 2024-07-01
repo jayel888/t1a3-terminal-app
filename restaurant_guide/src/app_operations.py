@@ -13,10 +13,25 @@ def add_restaurant(restaurants):
         cuisine = input("What type of cuisine? ")
         address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street) ? ")
         postcode = input("What is the postcode? ")
-        state = input("What state is it located in? ")
+        state = ""
+        if postcode[0] == '2':
+            state = 'NSW'
+        elif postcode[0] =='3':
+            state = 'VIC'
+        elif postcode[0] == '4':
+            state = 'QLD'
+        elif postcode[0] == '5':
+            state = 'SA'
+        elif postcode[0] == '6':
+            state = 'WA'
+        elif postcode[0] == '7':
+            state = 'TAS'
+        else:
+            state = input("What state is located? ")
+
         phone = input("What is their phone number? ")
-        price = int(input("What is the price per head?"))
-        rating = int(input("What do you rate it? (out of 10): "))
+        price = int(input("What is the price per head? "))
+        rating = int(input("What do you rate it (out of 10)? "))
 
         restaurant = {"Restaurant":name, "Cuisine":cuisine, "Address":address, "Postcode":postcode, "State":state, "Phone":phone, "Est Price PP": price, "Rating":rating }
         restaurants.append(restaurant)
