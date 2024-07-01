@@ -33,15 +33,23 @@ def add_restaurant(restaurants):
             state = input("Which state is it located in? ")
 
         phone = input("What is their phone number? ")
-        price = int(input("What is the price per head? "))
+
+        while True:
+            try:
+                price = int(input("What is the price per head? "))
+                if price != int:
+                    break
+            except ValueError: pass
+            print("Invalid input. Please enter a number.") 
+        
     
         while True:
             try:
                 rating = int(input("What do you rate it (out of 10)?: "))
-                if rating in range(1,11): 
+                if rating in range(0,11): 
                     break
             except ValueError: pass
-            print("Invalid number. Please enter a number between 1 - 10") 
+            print("Invalid number. Please enter a number between 0 - 10") 
             
 
 
