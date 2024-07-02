@@ -1,4 +1,5 @@
-import random
+import random # used for random_restaurant function, which generates a random restaurant based on filters
+import string # imported to use string.punctuation moduie to make sure no special characters are used in certain inputs
 
 def  display_restaurants(restaurants):
     try:
@@ -22,9 +23,10 @@ def add_restaurant(restaurants):
     while True:
         try:
             cuisine = input("What type of cuisine? ")
-            if cuisine != "":
+            if not cuisine or any(char.isdigit() for char in cuisine) or any(char in string.punctuation for char in cuisine):
+                print("Field cannot be left blank, contain any numbers, or contain special characters.")
+            else:
                 break
-            print("Field cannot be left blank.")
         except Exception as e:
             print(f"An unexpected error occured: {e}") 
 
@@ -66,10 +68,10 @@ def add_restaurant(restaurants):
 
     while True:
         try:
-            phone = input("What is their phone number? ")
-            if phone.isnumeric():
+            phone = input("What is their phone number? ").replace(" ", "")
+            if phone.isnumeric() and len(phone) == 8 or 10:
                 break
-            print("Invalid Input. Please input only numbers.")
+            print("Invalid Input. Please input only 10 digits, for landline include area code.")
         except Exception as e:
             print(f"An unexpected error occured: {e}")
 
@@ -106,7 +108,7 @@ def filter_restaurants(restaurants):
         if filter.lower() == "price":
             while True:
                 try:
-                    price_limit = int(input("Enter maximum price limit: "))
+                    price_limit = int(input("Enter maximum price per head limit: "))
                     if price_limit > 0:
                         return [restaurant for restaurant in restaurants if restaurant['Est Price PP'] < price_limit]
                     print("Input invalid, please enter a number greater than 0")                   
@@ -129,18 +131,24 @@ def filter_restaurants(restaurants):
                     return []
         else: 
             print("Please enter 'Rating' or 'Price'.")
-
-
-
-    # filter = int(input("select rating: "))
-    # try:
-    #     return [restaurant for restaurant in restaurants if restaurant['Rating'] > filter]
-    # except Exception as e:
-    #     print(f"An unexpected error occured: {e}")
-    #     return []
-                
-
+          
 def random_restaurant(restaurants):
-    rand_rest = random.choice(restaurants)
-    print(f"Random Restaurant: {rand_rest}")
+    while True:
+        try:
+            price = input("Enter the maximum price you are willing to pay: ")
+            if not price.isnumeric():
+                print("Invalid input. Please enter a numeric value for price.")
+                continue #skips the rest of the loop to prompt user for correct input
+
+            price = int(price)
+            filtered_restaurants = [rest for rest in restaurants if rest['Est Price PP'] <= price]
+
+            if filtered_restaurants:
+                rand_rest = random.choice(filtered_restaurants)
+                print(f"Random Restaurant: {rand_rest['Restaurant']} - CUISINE: {rand_rest['Cuisine']}, ADDRESS: {rand_rest['Address']}, {rand_rest['Postcode']}, {rand_rest['State']}, PH: {rand_rest['Phone']}, PRICE: ${rand_rest['Est Price PP']}, RATING (Out of 10): {rand_rest['Rating']}")
+            else:
+                print("No restaurants found within the specified price range.")
+            break
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
 

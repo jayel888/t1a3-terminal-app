@@ -14,7 +14,7 @@ def main():
         print("1: Display all restaurants")
         print("2: Add a new restaurant")
         print("3: Filter restaurants by Price or Rating")
-        print("4: Generate a random restaurant (Perfect for when you can't decide where to eat)")
+        print("4: Generate a random restaurant based on price")
         print("5: Save updates and Exit")
 
         choice = input("\nSelect from the above: ")
