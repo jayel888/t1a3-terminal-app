@@ -33,7 +33,7 @@ def main():
                 save_restaurants_list(FILE_PATH, restaurants)
                 break
             except Exception as e:
-                print(f"Error saving matches: {e}")
+                print(f"Error saving restaurants list: {e}")
         else:
             print("Invalid Choice. Please select a number between 1-5")
     
