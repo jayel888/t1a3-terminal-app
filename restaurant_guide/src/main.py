@@ -24,7 +24,8 @@ def main():
         elif choice == '2':
             add_restaurant(restaurants)
         elif choice == '3':
-            filter_restaurants(restaurants)
+            prices = filter_restaurants(restaurants)
+            display_restaurants(prices)
         elif choice == '4':
             random_restaurant(restaurants)
         elif choice == '5':
