@@ -10,10 +10,33 @@ def  display_restaurants(restaurants):
         print(f"An unexpected error occured: {e}")
 
 def add_restaurant(restaurants):
-    name = input("What is the name of the restaurant? ")
-    cuisine = input("What type of cuisine? ")
-    address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street) ? ")
-    
+    while True:
+        try:
+            name = input("What is the name of the restaurant? ")
+            if name != "":
+                break
+            print("Name cannot be left blank.")
+        except Exception as e:
+            print(f"An unexpected error occured: {e}")
+
+    while True:
+        try:
+            cuisine = input("What type of cuisine? ")
+            if cuisine != "":
+                break
+            print("Field cannot be left blank.")
+        except Exception as e:
+            print(f"An unexpected error occured: {e}") 
+
+    while True:
+        try:
+            address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street) ? ")
+            if address != "":
+                break
+            print("Field cannot be left blank. Please write NA if unknown.")
+        except Exception as e:
+            print(f"An unexpected error occured: {e}") 
+
     while True:
         try: 
             postcode = (input("What is the postcode? "))
@@ -41,7 +64,14 @@ def add_restaurant(restaurants):
     else:
         state = input("Which state is it located in? ")
 
-    phone = input("What is their phone number? ")
+    while True:
+        try:
+            phone = input("What is their phone number? ")
+            if phone.isnumeric():
+                break
+            print("Invalid Input. Please input only numbers.")
+        except Exception as e:
+            print(f"An unexpected error occured: {e}")
 
     while True:
         try:
@@ -74,19 +104,29 @@ def filter_restaurants(restaurants):
     while True:
         filter = input("Do you want to sort by Price or Rating? ")
         if filter.lower() == "price":
-            price_limit = int(input("Enter maximum price limit: "))
-            try:
-                return [restaurant for restaurant in restaurants if restaurant['Est Price PP'] < price_limit]
-            except Exception as e:
-                print(f"An unexpected error occured: {e}")
-                return []
+            while True:
+                try:
+                    price_limit = int(input("Enter maximum price limit: "))
+                    if price_limit > 0:
+                        return [restaurant for restaurant in restaurants if restaurant['Est Price PP'] < price_limit]
+                    print("Input invalid, please enter a number greater than 0")                   
+                except ValueError:
+                    print("Input must be a number greater than 0")
+                except Exception as e:
+                    print(f"An unexpected error occured: {e}")
+                    return []
         elif filter.lower() == "rating":
-            min_rating = int(input("Enter minimum rating: "))
-            try:
-                return [restaurant for restaurant in restaurants if restaurant['Rating'] >= min_rating]
-            except Exception as e:
-                print(f"An unexpected error occured: {e}")
-                return []
+            while True:
+                try:
+                    min_rating = int(input("Enter minimum rating: "))
+                    if 0 <= min_rating <= 10:
+                        return [restaurant for restaurant in restaurants if restaurant['Rating'] >= min_rating]
+                    print("Input invalid. Please enter number between 0-10")
+                except ValueError:
+                    print("Input must be a number between 0 - 10")
+                except Exception as e:
+                    print(f"An unexpected error occured: {e}")
+                    return []
         else: 
             print("Please enter 'Rating' or 'Price'.")
 

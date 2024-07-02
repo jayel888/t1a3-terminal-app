@@ -13,8 +13,8 @@ def main():
         print("\nWelcome to your Restaurant Tracker!\n")
         print("1: Display all restaurants")
         print("2: Add a new restaurant")
-        print("3: Filter restaurants by Rating or Price.")
-        print("4: Generate a random restaurant. (Perfect for when you can't decide what to eat)")
+        print("3: Filter restaurants by Price or Rating")
+        print("4: Generate a random restaurant (Perfect for when you can't decide where to eat)")
         print("5: Save updates and Exit")
 
         choice = input("\nSelect from the above: ")
@@ -24,8 +24,9 @@ def main():
         elif choice == '2':
             add_restaurant(restaurants)
         elif choice == '3':
-            prices = filter_restaurants(restaurants)
-            display_restaurants(prices)
+            filter = filter_restaurants(restaurants)
+            print("\nRestaurants that meet your requirements: ")
+            display_restaurants(filter)
         elif choice == '4':
             random_restaurant(restaurants)
         elif choice == '5':
