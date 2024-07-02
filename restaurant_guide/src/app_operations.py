@@ -49,6 +49,8 @@ def add_restaurant(restaurants):
             if price >= 0:
                 break
             print("Invalid input. Please enter a number.")
+        except ValueError:
+            print("Input must be a number.")
         except Exception as e:
             print(f"An unexpected error occured: {e}")
         
@@ -57,8 +59,9 @@ def add_restaurant(restaurants):
             rating = int(input("Enter rating between 0 - 10: "))
             if rating in range(0,11): 
                 break
-        except ValueError:
             print("Invalid number. Please enter a number between 0 - 10") 
+        except ValueError:
+            print("Input must be a number.")
         except Exception as e:
             print(f"An unexpected error occured: {e}")
         

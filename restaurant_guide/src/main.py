@@ -29,8 +29,11 @@ def main():
         elif choice == '4':
             random_restaurant(restaurants)
         elif choice == '5':
-            break
-        
+            try:
+                save_restaurants_list(FILE_PATH, restaurants)
+                break
+            except Exception as e:
+                print(f"Error saving matches: {e}")
         else:
             print("Invalid Choice. Please select a number between 1-5")
     
