@@ -105,6 +105,21 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
     restaurants.append(restaurant)
     print("Restaurant successfully added.")
 
+def remove_restaurant(restaurants):
+    try:
+        restaurant_to_remove = input("Enter the name of the restaurant you want to remove: ")
+
+        for r, restaurant in enumerate(restaurants):
+            if restaurant['Name'].lower() == restaurant_to_remove.lower():
+                removed_restaurant = restaurants.pop(r)
+                print(f"Removed {removed_restaurant['Name']} from the list.")
+                return
+        print("Restaurant not found. Names must match exactly. Press 1 to view all restaurants.")
+    except KeyError as e:
+        print(f"Error removing restaurant: Missing key {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
 def filter_restaurants(restaurants):
     while True:
         filter = input("Do you want to sort by Price or Rating? ")
@@ -156,4 +171,3 @@ def random_restaurant(restaurants):
         print(f"\nRandom Restaurant: {rand_rest['Name']} - CUISINE: {rand_rest['Cuisine']}, ADDRESS: {rand_rest['Address']}, {rand_rest['Postcode']}, {rand_rest['State']}, PH: {rand_rest['Phone']}, PRICE: ${rand_rest['Est Price PP']}, RATING (Out of 10): {rand_rest['Rating']}")
     else:
         print("No restaurants found within the specified price range.")
-
