@@ -1,11 +1,10 @@
 import random # used for random_restaurant function, which generates a random restaurant based on filters
 import string # imported to use string.punctuation moduie to make sure no special characters are used in certain inputs
-import datetime
 
 def  display_restaurants(restaurants): # Function to display all restaurants stored in .json file.
     try:
         for restaurant in restaurants:
-            print(f"{restaurant['Restaurant']} - CUISINE: {restaurant['Cuisine']}, ADDRESS: {restaurant['Address']}, {restaurant['Postcode']}, {restaurant['State']}, PH: {restaurant['Phone']}, PRICE: ${restaurant['Est Price PP']}, RATING (Out of 10): {restaurant['Rating']}")
+            print(f"{restaurant['Name']} - CUISINE: {restaurant['Cuisine']}, ADDRESS: {restaurant['Address']}, {restaurant['Postcode']}, {restaurant['State']}, PH: {restaurant['Phone']}, PRICE: ${restaurant['Est Price PP']}, RATING (Out of 10): {restaurant['Rating']}")
     except KeyError as e:
         print(f"Error displaying restaurants: Missing key {e}")
     except Exception as e:
@@ -102,7 +101,7 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
             print(f"An unexpected error occured: {e}")
         
 
-    restaurant = {"Restaurant":name, "Cuisine":cuisine, "Address":address, "Postcode":postcode, "State":state, "Phone":phone, "Est Price PP": price, "Rating":rating }
+    restaurant = {"Name":name, "Cuisine":cuisine, "Address":address, "Postcode":postcode, "State":state, "Phone":phone, "Est Price PP": price, "Rating":rating }
     restaurants.append(restaurant)
     print("Restaurant successfully added.")
 
@@ -154,7 +153,7 @@ def random_restaurant(restaurants):
 
     if filtered_restaurants:
         rand_rest = random.choice(filtered_restaurants)
-        print(f"\nRandom Restaurant: {rand_rest['Restaurant']} - CUISINE: {rand_rest['Cuisine']}, ADDRESS: {rand_rest['Address']}, {rand_rest['Postcode']}, {rand_rest['State']}, PH: {rand_rest['Phone']}, PRICE: ${rand_rest['Est Price PP']}, RATING (Out of 10): {rand_rest['Rating']}")
+        print(f"\nRandom Restaurant: {rand_rest['Name']} - CUISINE: {rand_rest['Cuisine']}, ADDRESS: {rand_rest['Address']}, {rand_rest['Postcode']}, {rand_rest['State']}, PH: {rand_rest['Phone']}, PRICE: ${rand_rest['Est Price PP']}, RATING (Out of 10): {rand_rest['Rating']}")
     else:
         print("No restaurants found within the specified price range.")
 
