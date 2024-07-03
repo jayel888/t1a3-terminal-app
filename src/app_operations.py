@@ -4,14 +4,13 @@ import pandas as pd
 
 df = pd.read_json('../data/restaurant_list.json')
 
-
 def  display_restaurants(restaurants): # Function to display all restaurants stored in .json file.
     try:
         # for restaurant in restaurants:
         #     print(f"{restaurant['Name']} - CUISINE: {restaurant['Cuisine']}, ADDRESS: {restaurant['Address']}, {restaurant['Postcode']}, {restaurant['State']}, PH: {restaurant['Phone']}, PRICE: ${restaurant['Est Price PP']}, RATING (Out of 10): {restaurant['Rating']}")
         print(df.to_string()) 
     except KeyError as e:
-        print(f"Error displaying restaurants: Missing key {e}")
+        print(f"Error displaying restaurants: Missing key {e}") # Error handling if key is non existent
     except Exception as e:
         print(f"An unexpected error occured: {e}")
 
@@ -31,14 +30,14 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
             if not cuisine or any(char.isdigit() for char in cuisine) or any(char in string.punctuation for char in cuisine): # scans each character in input to ensure no numbers or special characters are be input.
                 print("Field cannot be left blank, contain any numbers, or contain special characters.")
             else:
-                break
+                break # if requirements are met, break loop
         except Exception as e:
             print(f"An unexpected error occured: {e}") 
 
     while True:
         try:
             address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street)? ")
-            if address == "":
+            if address == "": #
                 print("Address cannot be left blank.")
             else:
                 break
@@ -181,6 +180,8 @@ def random_restaurant(restaurants):
 
     if filtered_restaurants:
         rand_rest = random.choice(filtered_restaurants)
-        print(f"\nRandom Restaurant: {rand_rest['Name']} - CUISINE: {rand_rest['Cuisine']}, ADDRESS: {rand_rest['Address']}, {rand_rest['Postcode']}, {rand_rest['State']}, PH: {rand_rest['Phone']}, PRICE: ${rand_rest['Est Price PP']}, RATING (Out of 10): {rand_rest['Rating']}")
+        df = pd.DataFrame([rand_rest])
+        print("\nRandom Restaurant:")
+        print(df.to_string(index=False))
     else:
         print("No restaurants found within the specified price limit.")
