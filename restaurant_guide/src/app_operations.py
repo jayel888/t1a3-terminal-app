@@ -34,9 +34,10 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
     while True:
         try:
             address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street) ? ")
-            if address != "":
+            if not address or any(char in string.punctuation for char in address):
+                print("Field cannot be left blank, or contain any special characters. Please write NA if unknown.")
+            else:
                 break
-            print("Field cannot be left blank. Please write NA if unknown.")
         except Exception as e:
             print(f"An unexpected error occured: {e}") 
 
@@ -72,7 +73,9 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
             phone = input("What is their phone number? ").replace(" ", "")
             if phone.isnumeric() and len(phone) == 10 or len(phone) == 8:
                 break
-            print("Invalid Input. Please provide landline or mobile number.")
+            elif phone.lower() == "na":
+                break
+            print("Invalid phone number. Please provide valid landline or mobile number, or enter 'NA' if unknown.")
         except Exception as e:
             print(f"An unexpected error occured: {e}")
 
