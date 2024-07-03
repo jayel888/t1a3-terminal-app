@@ -130,35 +130,39 @@ def remove_restaurant(restaurants):
         print(f"An unexpected error occurred: {e}")
 
 def filter_restaurants(restaurants):
+    df = pd.DataFrame(restaurants)
     while True:
-        filter = input("Do you want to sort by Price or Rating? ")
-        if filter.lower() == "price":
-            while True:
-                try:
-                    price_limit = int(input("Enter maximum price per head limit: "))
-                    if price_limit > 0:
-                        return [restaurant for restaurant in restaurants if restaurant['Est Price PP'] < price_limit]
-                    print("Input invalid, please enter a number greater than 0")                   
-                except ValueError:
-                    print("Input must be a number greater than 0")
-                except Exception as e:
-                    print(f"An unexpected error occured: {e}")
-                    return []
-        elif filter.lower() == "rating":
-            while True:
-                try:
-                    min_rating = int(input("Enter minimum rating: "))
-                    if 0 <= min_rating <= 10:
-                        return [restaurant for restaurant in restaurants if restaurant['Rating'] >= min_rating]
-                    print("Input invalid. Please enter number between 0-10")
-                except ValueError:
-                    print("Input must be a number between 0 - 10")
-                except Exception as e:
-                    print(f"An unexpected error occured: {e}")
-                    return []
-        else: 
-            print("Please enter 'Rating' or 'Price'.")
-          
+        filter_by = input("Do you want to filter by 'Price' or 'Rating'? ").strip().lower()
+        if filter_by == "price":
+            try:
+                max_price = float(input("Enter maximum price per head: "))
+                filtered_df = df[df['Est Price PP'] <= max_price]
+                if filtered_df.empty:
+                    print("No restaurants found within the specified price limit.")
+                else:
+                    print(filtered_df.to_string(index=False))
+                return
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+        elif filter_by == "rating":
+            try:
+                min_rating = float(input("Enter minimum rating: "))
+                filtered_df = df[df['Rating'] >= min_rating]
+                if filtered_df.empty:
+                    print("No restaurants found with the specified rating or higher.")
+                else:
+                    print(filtered_df.to_string(index=False))
+                return
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+        else:
+            print("Invalid input. Please enter 'Price' or 'Rating'.")    
+
+
 def random_restaurant(restaurants):
     while True:
         try:

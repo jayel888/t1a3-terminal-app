@@ -27,9 +27,9 @@ def main():
         elif choice == '3':
             remove_restaurant(restaurants)    
         elif choice == '4':
-            filter = filter_restaurants(restaurants)
-            print("\nRestaurants that meet your requirements: ")
-            display_restaurants(filter)
+            filtered_restaurants = filter_restaurants(restaurants)
+            if filtered_restaurants:
+                display_restaurants(filtered_restaurants)
         elif choice == '5':
             random_restaurant(restaurants)
         elif choice == '6':
