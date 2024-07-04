@@ -109,14 +109,14 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
     df = pd.DataFrame(restaurants) # update json file
     print("Restaurant successfully added.") 
 
-def remove_restaurant(restaurants):
+def remove_restaurant(restaurants): # Function to remove restaurants, if one is entered incorrectly
     try:
-        restaurant_to_remove = input("Enter the name of the restaurant you want to remove: ")
+        restaurant_to_remove = input("Enter the name of the restaurant you want to remove: ") # saves input to variable
 
-        for r, restaurant in enumerate(restaurants):
+        for r, restaurant in enumerate(restaurants): # for loop to scan all restaurants in list to find a match
             if restaurant['Name'].lower() == restaurant_to_remove.lower():
                 removed_restaurant = restaurants.pop(r)
-                global df
+                global df # updates data so it works with pandas interface
                 df = pd.DataFrame(restaurants)
                 print(f"Removed {removed_restaurant['Name']} from the list.")
                 return
@@ -126,32 +126,37 @@ def remove_restaurant(restaurants):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
-def filter_restaurants(restaurants):
+def filter_restaurants(restaurants): # Function to filter restaurants by either price or rating
     df = pd.DataFrame(restaurants)
     while True:
-        filter_by = input("Do you want to filter by 'Price' or 'Rating'? ").strip().lower()
+        filter_by = input("Do you want to filter by 'Price' or 'Rating'? ").strip().lower() 
+        # strip allows input to have any spaces in front of text allowing extra room for error, and lower allows input to be types in upper or lowercase.
         if filter_by == "price":
             try:
-                max_price = float(input("Enter maximum price per head: "))
-                filtered_df = df[df['Est Price PP'] <= max_price]
-                if filtered_df.empty:
+                max_price = int(input("Enter maximum price per head: ")) # prompt user for maximum price threshold. shows all restaurants below that price
+                filtered_df = df[df['Est Price PP'] <= max_price] # saves any restaurants below or equal to max price to variable
+                if max_price < 0:
+                    print("Invalid Input. Please enter a positive number.")
+                elif filtered_df.empty: # if no restaurants within range, prints statement
                     print("No restaurants found within the specified price limit.")
                 else:
-                    print(filtered_df.to_string(index=False))
-                return
+                    print(filtered_df.to_string(index=True)) # prints restaurants as string with Panda interface
+                    return
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
             except Exception as e:
                 print(f"An unexpected error occurred: {e}")
         elif filter_by == "rating":
             try:
-                min_rating = float(input("Enter minimum rating: "))
+                min_rating = int(input("Enter minimum rating: ")) # prompts users for a minimum rating threshold, will output all restaurants with a rating equal to or higher than input
                 filtered_df = df[df['Rating'] >= min_rating]
-                if filtered_df.empty:
+                if min_rating < 0 or min_rating > 10:
+                    print("Input must be between 0 - 10")
+                elif filtered_df.empty:
                     print("No restaurants found with the specified rating or higher.")
                 else:
-                    print(filtered_df.to_string(index=False))
-                return
+                    print(filtered_df.to_string(index=True))
+                    return
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
             except Exception as e:
@@ -160,23 +165,25 @@ def filter_restaurants(restaurants):
             print("Invalid input. Please enter 'Price' or 'Rating'.")    
 
 
-def random_restaurant(restaurants):
+def random_restaurant(restaurants): # random restaurant function. prompts user for a maximum price range and outputs one single restaurant from data that meets the range.
     while True:
         try:
             price = input("Enter the maximum price you are willing to pay (or type 'any' for no limit): ")
-            if price.lower() == "any":
-                filtered_restaurants = restaurants
+            # prompts for input as a string, so user can type 'any' for no maximum limit
+            if price.lower() == "any": # if any, sets range as all restaurants
+                filtered_restaurants = restaurants 
                 break
-            elif price.isnumeric():
+            elif price.isnumeric(): # if number, convert to integer
                 price = int(price)
                 filtered_restaurants = [rest for rest in restaurants if rest['Est Price PP'] <= price]
+                # seaches all restaurants in data with price below input and saves to variable
                 break
             else:
                 print("Invalid input. Please enter a numeric value for price or 'any' for no limit.")
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
 
-    if filtered_restaurants:
+    if filtered_restaurants: # if there are restaurants that meet range, uses 'random' package to choose one.
         rand_rest = random.choice(filtered_restaurants)
         df = pd.DataFrame([rand_rest])
         print("\nRandom Restaurant:")
