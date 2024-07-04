@@ -14,14 +14,14 @@ My application has been designed to utilise multiple programming concepts such a
 
 ## Table of Contents
 - [Features of Application and Reasoning](#features-of-the-restaurant-tracker-and-logical-reasoning)
-    -[Menu](#menu)
-    -[Display All Restaurants](#display-all-restaurants-from-data)
-    -[Add a Restaurant](#add-a-restaurant)
-    -[Remove a Restaurant](#remove-a-restaurant)
-    -[Filter Restaurants](#filter-restaurants-in-dataset-by-price-or-rating)
-    -[Generate a random Restaurant](#generate-random-restaurant-based-on-price)
-    -[Read and Save Data](#read-and-save-data)
--[Instructions](#instructions---how-to-use-application)
+ - [Menu](#menu)
+ - [Display All Restaurants](#display-all-restaurants-from-data)
+ - [Add a Restaurant](#add-a-restaurant)
+ - [Remove a Restaurant](#remove-a-restaurant)
+ - [Filter Restaurants](#filter-restaurants-in-dataset-by-price-or-rating)
+ - [Generate a random Restaurant](#generate-random-restaurant-based-on-price)
+ - [Read and Save Data](#read-and-save-data)
+- [Instructions](#instructions---how-to-use-application)
 
 ## Features of the Restaurant Tracker and Logical Reasoning
 
