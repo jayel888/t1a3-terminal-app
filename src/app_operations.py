@@ -82,7 +82,7 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
 
     while True: # while loop to prompt user until valid input received
         try:
-            price = int(input("What is the average price per head? $")) # price entered as an integer. cannot accept anything else
+            price = int(input("What is the average price per head ($)? ")) # price entered as an integer. cannot accept anything else
             if price >= 0: # ensures price is positive number. cannot be negative
                 break
             print("Invalid input. Please enter a number.")
@@ -107,7 +107,7 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
     restaurants.append(restaurant) # assigns each variable to the respective key in the datafile and updates it.
     global df
     df = pd.DataFrame(restaurants) # update json file
-    print("Restaurant successfully added.") 
+    print("\nRestaurant successfully added.") 
 
 def remove_restaurant(restaurants): # Function to remove restaurants, if one is entered incorrectly
     try:
