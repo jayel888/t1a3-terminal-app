@@ -78,5 +78,46 @@ To access the .json file, I have imported the 'json' in-built python package and
 When selecting 6 from the main menu, it will save all updates/changes made in the session and exit the application. 
 
 ## Instructions for Application
+To launch application, enter `./run.sh` from JessLee_T1A3 folder.
+A virtual environment will be created and activated, and external packages installed within.
+Once the application has loaded, you will be greeted with the Main Menu screen. The app has been pre-loaded with a 7 different restaurants to explore it's features, but they can be removed.
 
+![Main Menu Screenshot](./docs/ins_menu.PNG)
 
+You will need to enter a number from 1 - 6 depending on what you would like to do within the app.
+
+1. Display all restaurants - Will Display all the restaurants that are already loaded into the application. This will display information such as the restaurant name, type of cuisine, the address, phone number, price per head and your rating in an easy to read table format. 
+
+![Display function example](./docs/ins_1.PNG)
+
+2. Add a new restaurant - Select this to add a new restaurant to your list. You will be prompted for information about the restaurant and any invalid inputs will ask you to enter something again. Once all the information has been entered, you should receive a message that saying "Restaurant Successfully added!" and then redirected back to the menu. 
+
+![Add Restaurant example](./docs/ins_add.PNG)
+
+Once at the menu, you can select 1 to see the latest entry in the list.
+
+![Add Restaurant example 2](./docs/ins_add2.PNG)
+
+3. Remove a restaurant - Select this to remove a restaurant from the list of data. If you have made any mistakes when adding a restaurant, as you cannot edit already completed entries, you will need to delete it entirely and re-add it. When deleting a restaurant, you will need to enter it exactly how it is displayed in 'Display all restaurants' table. However upper or lowercase characters will still work if spelled correctly. See example below. You will receive a prompt informing whether or not your input has matched. Once returned to the main menu, you can press 1 to confirm the entry has been deleted.
+
+![Example of removing restaurant](./docs/ins_remove.PNG)
+
+4. Filter Restaurants - This feature lets you filter restaurants either by 'Price' or 'Rating'. 
+
+![Filter example 1](./docs/ins_filter1.PNG)
+
+If you select 'Price', you will then be prompted to enter a price limit. If you input anything other than a positive number, it will take you back to the start. If a valid number is provided, the program will display all restaurants **equal to and below** that price per head limit. 
+
+![Filter by price example](./docs/ins_filter2.PNG)
+
+If 'Rating' is selected, similar to price, you will be prompted to enter a number between 0-10. If a valid number is provided, the program will display all restaurants with a rating **equal to or below** the input. 
+
+![Filter by rating example](./docs/ins_filter3.PNG)
+
+Once completed, you will be returned to the main menu.
+
+5. Generate a random restaurant - This allows you to set a price limit and the program will generate one single restaurant **equal to or below** the price provided. This is super handy if you want someone to decide where you should eat!
+
+![Randomly generated restaurant example](./docs/random_ex.PNG)
+
+6. Save and Exit - If selected, the application will save all updates/changes made in the session and close the application. When you re-open the application, you will see your changes have been saved.
