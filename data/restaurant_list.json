@@ -1,71 +1,71 @@
 [
     {
-        "Restaurant": "NOMAD",
+        "Name": "NOMAD",
         "Cuisine": "Fusion",
         "Address": "187 Flinders Ln",
         "Postcode": "3000",
         "State": "VIC",
-        "Phone": "9280 3395",
+        "Phone": "0392803395",
         "Est Price PP": 100,
         "Rating": 9
     },
     {
-        "Restaurant": "Minamishima",
+        "Name": "Minamishima",
         "Cuisine": "Japanese",
         "Address": "4 Lord St",
         "Postcode": "3121",
         "State": "VIC",
-        "Phone": "9429 5180",
+        "Phone": "0394295180",
         "Est Price PP": 295,
         "Rating": 9
     },
     {
-        "Restaurant": "Subway - Reservoir",
+        "Name": "Subway - Reservoir",
         "Cuisine": "Fast Food",
         "Address": "931 High St",
         "Postcode": "3073",
         "State": "VIC",
-        "Phone": "9460 4555",
+        "Phone": "0394604555",
         "Est Price PP": 13,
         "Rating": 6
     },
     {
-        "Restaurant": "McDonalds - Preston",
+        "Name": "McDonalds - Preston",
         "Cuisine": "Fast Food",
         "Address": "411 423, St Georges Rd",
         "Postcode": "3072",
         "State": "VIC",
-        "Phone": "9480 0135",
+        "Phone": "0394800135",
         "Est Price PP": 12,
         "Rating": 10
     },
     {
-        "Restaurant": "Tipo 00",
+        "Name": "Tipo 00",
         "Cuisine": "Italian",
         "Address": "361 Little Bourke St",
         "Postcode": "3000",
         "State": "VIC",
-        "Phone": "9942 3946",
+        "Phone": "0399423946",
         "Est Price PP": 60,
         "Rating": 8
     },
     {
-        "Restaurant": "Dexter",
+        "Name": "Dexter",
         "Cuisine": "American",
         "Address": "456 High St",
         "Postcode": "3072",
         "State": "VIC",
-        "Phone": "(03) 9973 3577",
+        "Phone": "0399733577",
         "Est Price PP": 50,
         "Rating": 8
     },
     {
-        "Restaurant": "PHO Hung Preston",
+        "Name": "PHO Hung Preston",
         "Cuisine": "Vietnamese",
         "Address": "447 High St",
         "Postcode": "3072",
         "State": "VIC",
-        "Phone": "(03) 9470 1588",
+        "Phone": "0394701588",
         "Est Price PP": 30,
         "Rating": 7
     }

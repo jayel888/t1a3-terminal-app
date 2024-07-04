@@ -6,8 +6,6 @@ df = pd.read_json('../data/restaurant_list.json')
 
 def  display_restaurants(restaurants): # Function to display all restaurants stored in .json file.
     try:
-        # for restaurant in restaurants:
-        #     print(f"{restaurant['Name']} - CUISINE: {restaurant['Cuisine']}, ADDRESS: {restaurant['Address']}, {restaurant['Postcode']}, {restaurant['State']}, PH: {restaurant['Phone']}, PRICE: ${restaurant['Est Price PP']}, RATING (Out of 10): {restaurant['Rating']}")
         print(df.to_string()) 
     except KeyError as e:
         print(f"Error displaying restaurants: Missing key {e}") # Error handling if key is non existent
@@ -37,23 +35,23 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
     while True:
         try:
             address = input("What is the address (Enter without State or Postcode, eg. 123 Food Street)? ")
-            if address == "": #
+            if address == "": # ensures address cannot be left blank, re-enters loop to prompt user again
                 print("Address cannot be left blank.")
             else:
                 break
         except Exception as e:
             print(f"An unexpected error occured: {e}") 
 
-    while True:
+    while True: # while loop to prompt user again until valid input is provided
         try: 
             postcode = (input("What is the postcode? "))
-            if postcode.isnumeric() and len(postcode) == 4:
+            if postcode.isnumeric() and len(postcode) == 4: # isnumeric ensures only numbers and exactly 4 digits are input to break while loop as Australian postcodes cannot be anything other.
                 break
             print("Invalid input. Postcode must be 4 digits only.")
         except Exception as e:
             print(f"An unexpected error occured: {e}")
         
-    state = ""
+    state = "" # doesn't prompt user for state, automatically assigns based on postcode input
     if postcode[0] == '3':
         state = 'VIC'
     elif postcode[0] == '2':
@@ -71,21 +69,21 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
     else:
         state = input("Which state is it located in? ")
 
-    while True:
+    while True: # while loop to prompt user until valid input received
         try:
-            phone = input("What is their phone number (enter 'NA' if unknown)? ").replace(" ", "")
-            if phone.isnumeric() and len(phone) == 10 or len(phone) == 8:
+            phone = input("What is their phone number (enter 'NA' if unknown)? ").replace(" ", "") # allows users to enter numbers with or without spaces, like 0400 000 000 or 0400000000
+            if phone.isnumeric() and len(phone) == 10 or len(phone) == 8: # phone number must be valid. Used 8 digits so users can enter without area code, or 10 for area code/mobile numbers
                 break
-            elif phone.lower() == "na":
+            elif phone.lower() == "na": # if phone number is unknown, user can input 'na' in upper or lower case to proceed
                 break
             print("Invalid phone number. Please provide valid landline or mobile number, or enter 'NA' if unknown.")
         except Exception as e:
             print(f"An unexpected error occured: {e}")
 
-    while True:
+    while True: # while loop to prompt user until valid input received
         try:
-            price = int(input("What is the average price per head? $"))
-            if price >= 0:
+            price = int(input("What is the average price per head? $")) # price entered as an integer. cannot accept anything else
+            if price >= 0: # ensures price is positive number. cannot be negative
                 break
             print("Invalid input. Please enter a number.")
         except ValueError:
@@ -93,10 +91,10 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
         except Exception as e:
             print(f"An unexpected error occured: {e}")
         
-    while True:
+    while True: # while loop to keep re-prompting
         try:
-            rating = int(input("Enter rating between 0 - 10: "))
-            if rating in range(0,11): 
+            rating = int(input("Enter rating between 0 - 10: ")) 
+            if rating in range(0,11): # rating to be entered as integer, must be between 0-10 inclusive.
                 break
             print("Invalid number. Please enter a number between 0 - 10") 
         except ValueError:
@@ -106,10 +104,10 @@ def add_restaurant(restaurants): # Function to add a new restaurant to the list
         
 
     restaurant = {"Name":name, "Cuisine":cuisine, "Address":address, "Postcode":postcode, "State":state, "Phone":phone, "Est Price PP": price, "Rating":rating }
-    restaurants.append(restaurant)
+    restaurants.append(restaurant) # assigns each variable to the respective key in the datafile and updates it.
     global df
-    df = pd.DataFrame(restaurants)
-    print("Restaurant successfully added.")
+    df = pd.DataFrame(restaurants) # update json file
+    print("Restaurant successfully added.") 
 
 def remove_restaurant(restaurants):
     try:
