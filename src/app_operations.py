@@ -2,7 +2,7 @@ import random # used for random_restaurant function, which generates a random re
 import string # imported to use string.punctuation moduie to make sure no special characters are used in certain inputs
 import pandas as pd
 
-df = pd.read_json('../data/restaurant_list.json')
+df = pd.read_json('./data/restaurant_list.json')
 
 def  display_restaurants(restaurants): # Function to display all restaurants stored in .json file.
     try:
