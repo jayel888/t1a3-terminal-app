@@ -14,14 +14,17 @@ My application has been designed to utilise multiple programming concepts such a
 
 ## Table of Contents
 - [Features of Application and Reasoning](#features-of-the-restaurant-tracker-and-logical-reasoning)
- - [Menu](#menu)
- - [Display All Restaurants](#display-all-restaurants-from-data)
- - [Add a Restaurant](#add-a-restaurant)
- - [Remove a Restaurant](#remove-a-restaurant)
- - [Filter Restaurants](#filter-restaurants-in-dataset-by-price-or-rating)
- - [Generate a random Restaurant](#generate-random-restaurant-based-on-price)
- - [Read and Save Data](#read-and-save-data)
+    - [Menu](#menu)
+    - [Display All Restaurants](#display-all-restaurants-from-data)
+    - [Add a Restaurant](#add-a-restaurant)
+    - [Remove a Restaurant](#remove-a-restaurant)  
+    - [Filter Restaurants](#filter-restaurants-in-dataset-by-price-or-rating)
+    - [Generate a random Restaurant](#generate-random-restaurant-based-on-price)
+    - [Read and Save Data](#read-and-save-data)
 - [Instructions](#instructions---how-to-use-application)
+
+## Development and Implementation Plan
+
 
 ## Features of the Restaurant Tracker and Logical Reasoning
 
@@ -89,9 +92,9 @@ To access the .json file, I have imported the 'json' in-built python package and
 When selecting 6 from the main menu, it will save all updates/changes made in the session and exit the application. 
 
 ## Instructions - How to use application
-To launch application, enter `./run.sh` from JessLee_T1A3 folder.
-A virtual environment will be created and activated, and external packages installed within.
-Once the application has loaded, you will be greeted with the Main Menu screen. The app has been pre-loaded with a 7 different restaurants to explore it's features, but they can be removed.
+Check whether python is installed on your system. To check, type `./python_install.sh` from the JessLee_T1A3 folder. The script will check and install Python 3 if isn't already installed to your system. Once Python is installed, enter `./run.sh` in your terminal from the JessLee_T1A3 folder to launch application.
+A virtual environment will be created and activated, and the necessary external packages will be installed within the virtual environment.
+Once the application has loaded, you will be greeted with the Main Menu screen. The app has been pre-loaded with a 7 different restaurants to explore it's features, but they can be removed with option 3 at the menu. 
 
 ![Main Menu Screenshot](./docs/ins_menu.PNG)
 
