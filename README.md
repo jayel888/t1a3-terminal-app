@@ -12,6 +12,8 @@ Welcome to my Restaurant Tracker Terminal Application! The purpose of this appli
 
 My application has been designed to utilise multiple programming concepts such as variables, user inputs, conditional loops and error handling for each function. Please see below for in-depth descriptions of each feature and my logical reasoning behind the code. 
 
+
+
 ## Table of Contents
 - [Features of Application and Reasoning](#features-of-the-restaurant-tracker-and-logical-reasoning)
     - [Menu](#menu)
@@ -25,6 +27,17 @@ My application has been designed to utilise multiple programming concepts such a
 
 ## Development and Implementation Plan
 
+The inspiration for this app came to me as I have a lot of difficulty deciding where to go out for dinner. It's a process that admittedly takes much longer than I would like. So I decided to build this app as an easy way to track which restaurants you have visited and essentially decide where eat for you! I had planned for the beginning on "displaying all restaurants", "adding a restaurant" and "generating a random restaurant" as it's main features. However during the coding process, I realised that no entries could be removed, especially if there was a typing error whilst adding a restaurant. Hence, I decided to create a function to remove data entries from the .json file. 
+
+Additionally, I wanted a way for users to filter through certain restaurants, particualrly displaying all high rated restaurants or cheap ones. In order to implement this, I decided to create one function that prompts users how they want to filter, by **Price or Rating**. From there it will show users restaurants below a nominated price threshold, or restaurants higher than a nominated rating. Throughout the entire projects lifespan, I have attempted to implement PEP-20 coding style 'The Zen of Python'.
+
+Here is the updated version of my flowchart to include the remove restaurant feature. 
+
+![Image of Flowchart](./docs/Flowchart.jpg)
+
+For this project, I used Trello to track my objectives and completion of tasks to keep me on track and have clear next steps defined. This allowed me to breakdown the project into multiple goals which drastically increased efficiency and time management. I had dedicated deadlines to myself to have each function completed by a certain date. This allowed me time to test and application and ensure everything runs as it should. Please see screenshot of my Trello Board below.
+
+![Screenshot of Trello Board](./docs/trello_board.PNG)
 
 ## Features of the Restaurant Tracker and Logical Reasoning
 
