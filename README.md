@@ -15,6 +15,8 @@ My application has been designed to utilise multiple programming concepts such a
 
 
 ## Table of Contents
+
+- [Development and Implementation](#development-and-implementation-plan)
 - [Features of Application and Reasoning](#features-of-the-restaurant-tracker-and-logical-reasoning)
     - [Menu](#menu)
     - [Display All Restaurants](#display-all-restaurants-from-data)
